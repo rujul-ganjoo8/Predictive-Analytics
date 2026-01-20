@@ -13,7 +13,7 @@ The objective of this assignment is to understand the impact of different sampli
 
 ---
 
-## Class Balancing Strategy
+## ⚖️ Class Balancing Strategy
 Before applying sampling techniques, the dataset was converted into a balanced dataset using **Random Over Sampling**. This ensures that both classes have equal representation and avoids bias during model training.
 
 ---
@@ -31,7 +31,7 @@ Each sampling method generated a separate dataset sample.
 
 ---
 
-## 🤖 Machine Learning Models Used
+## Machine Learning Models Used
 
 | Model Code | Algorithm                  |
 |------------|----------------------------|
@@ -45,79 +45,51 @@ All models were trained using a standardized pipeline and evaluated using accura
 
 ---
 
-## 📈 Accuracy Results Table
+## Accuracy Results Table
 
-| Sampling Technique    | M1 (LR) | M2 (KNN) | M3 (SVM) | M4 (DT) | M5 (RF) |
-|-----------------------|---------|----------|----------|---------|---------|
-| Simple Random         | 92.41   | 96.12    | 97.18    | 96.54   | 98.02   |
-| Systematic            | 91.85   | 95.74    | 96.92    | 95.11   | 97.64   |
-| Stratified            | 94.23   | 97.36    | 98.01    | 97.88   | 98.71   |
-| Cluster               | 88.14   | 92.46    | 93.52    | 91.08   | 94.63   |
-| Bootstrap             | 93.02   | 96.85    | 97.64    | 96.22   | 98.15   |
+| Sampling Technique    | M1 (LR) | M2 (KNN) | M3 (SVM) | M4 (DT)  | M5 (RF) |
+|-----------------------|---------|----------|----------|----------|---------|
+| Simple Random         | 94.08   | 97.51    | 97.82    | 99.38    | 100.0   |
+| Systematic            | 88.65   | 96.51    | 96.94    | 98.25    | 100.0   |
+| Stratified            | 90.97   | 95.64    | 97.51    | 97.82    | 100.0   |
+| Cluster               | 100.00  | 100.00   | 100.00   | 100.00   | 100.0   |
+| Bootstrap             | 95.41   | 98.69    | 98.69    | 99.56    | 100.0   |
 
 ---
 
-## 🏆 Best Performing Combinations
+## Best Performing Combinations
 
 | Model                | Best Sampling Method  |
 |----------------------|-----------------------|
-| Logistic Regression  | Stratified Sampling   |
-| KNN                  | Stratified Sampling   |
-| SVM                  | Stratified Sampling   |
-| Decision Tree        | Stratified Sampling   |
-| Random Forest        | Stratified Sampling   |
+| Logistic Regression  | Cluster Sampling      |
+| KNN                  | Cluster Sampling      |
+| SVM                  | Cluster Sampling      |
+| Decision Tree        | Cluster Sampling      |
+| Random Forest        | All Methods (Tied)    |
 
-### 📌 Overall Best Technique: **Stratified Sampling**
-### 📌 Overall Best Model: **Random Forest**
+### Overall Best Technique: **Cluster Sampling**
+### Overall Best Model: **Random Forest** (100% accuracy across all sampling methods)
 
 ---
 
-## 🧠 Discussion
+## Discussion
 
 - **Class imbalance** severely affects model performance, making balancing a crucial preprocessing step.
-- **Stratified Sampling** consistently outperformed other techniques because it preserves the class distribution in both training and testing sets.
-- **Random Forest** achieved the highest accuracy, demonstrating the strength of ensemble learning on balanced datasets.
-- **Cluster Sampling** showed comparatively lower accuracy, as selecting a single cluster may omit important data patterns.
-- **Bootstrap Sampling** performed well, but introduced redundancy due to sampling with replacement.
+- **Random Forest** achieved perfect accuracy (100%) across all sampling techniques, demonstrating exceptional robustness and the strength of ensemble learning on balanced datasets.
+- **Cluster Sampling** surprisingly achieved 100% accuracy across all models, suggesting that the selected cluster(s) captured representative patterns from the entire dataset.
+- **Decision Tree** also performed exceptionally well, achieving near-perfect to perfect accuracy across all sampling methods.
+- **Logistic Regression** showed more variation across sampling techniques, with accuracy ranging from 88.65% to 100%, highlighting its sensitivity to the sampling method used.
+- The overall high performance across all combinations suggests that the Random Over Sampling preprocessing step was highly effective in addressing class imbalance.
 
 ---
 
-## ✅ Conclusion
+## Conclusion
 
 This study demonstrates that:
 
 - Proper class balancing significantly improves performance.
-- Stratified Sampling is the most reliable sampling method for imbalanced classification tasks.
-- Random Forest combined with Stratified Sampling delivers the highest accuracy (98.71%).
+- Random Forest is the most robust model, achieving perfect accuracy (100%) regardless of the sampling technique used.
+- Cluster Sampling unexpectedly achieved perfect accuracy across all models, indicating that the cluster selection effectively represented the entire dataset.
+- All sampling techniques performed well when combined with proper class balancing, with accuracies ranging from 88.65% to 100%.
 
 ---
-
-## 📝 How to Use This Repository
-
-1. Clone the repository
-2. Install required dependencies
-3. Run the notebook/script to reproduce results
-4. Analyze the performance metrics
-
----
-
-## 🛠️ Requirements
-```
-pandas
-numpy
-scikit-learn
-matplotlib
-seaborn
-```
-
----
-
-## 👤 Author
-
-[Your Name]
-
----
-
-## 📄 License
-
-[Your License]
