@@ -13,7 +13,7 @@ The objective of this assignment is to understand the impact of different sampli
 
 ---
 
-## ⚖️ Class Balancing Strategy
+## Class Balancing Strategy
 Before applying sampling techniques, the dataset was converted into a balanced dataset using **Random Over Sampling**. This ensures that both classes have equal representation and avoids bias during model training.
 
 ---
